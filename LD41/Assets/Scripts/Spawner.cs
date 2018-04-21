@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour {
 
 	public GameObject[] hazards;
+	public GameObject scoreDisplay;
 
 	public float startTimeBtwSpanws;
 	private float timeBtwSpawns;
@@ -18,6 +19,7 @@ public class Spawner : MonoBehaviour {
 	void Update(){
 
 		if(debutGame <= 0){
+			scoreDisplay.SetActive(true);
 			if(timeBtwSpawns <= 0){
 				int rand = Random.Range(0, hazards.Length);
 				Instantiate(hazards[rand], transform.position, hazards[rand].transform.rotation);

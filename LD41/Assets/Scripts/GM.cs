@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class GM : MonoBehaviour {
 
+	private ScoreKeeping scoreKeeping;
+
+	void Start(){
+		scoreKeeping = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreKeeping>();
+		scoreKeeping.score = 0;
+	}
+
 	public void Lost(){
 		StartCoroutine(LostProcedure());
 	}

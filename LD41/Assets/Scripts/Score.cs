@@ -1,16 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Score : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public Text scoreDisplay;
+	public Animator scoreAnim;
+	private ScoreKeeping score;
+
+	void Start(){
+		score = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreKeeping>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+	void Update(){
 		
+		scoreDisplay.text = "" + score.score;
 	}
+
+	public void Anim(){
+		scoreAnim.SetTrigger("Pop");
+	}
+
 }

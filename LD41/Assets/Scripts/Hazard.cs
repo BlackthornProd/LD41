@@ -16,8 +16,10 @@ public class Hazard : MonoBehaviour {
 
 	private SpriteRenderer rend;
 	public Color[] colors;
+	private ScoreKeeping scoreKeeping;
 
 	void Start(){
+		scoreKeeping = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreKeeping>();
 		gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
 		rend = GetComponent<SpriteRenderer>();
 		cracks = GameObject.FindGameObjectWithTag("Cracks").GetComponent<Animator>();
@@ -52,7 +54,10 @@ public class Hazard : MonoBehaviour {
 		} else if(other.GetComponent<Player>().isDown == isDown) {
 			Instantiate(effect, transform.position, Quaternion.identity);
 			camAnim.SetTrigger("Shake");
+			scoreKeeping.score++;
+			gm.GetComponent<Score>().Anim();
 			Destroy(gameObject);
+
 		}
 	}
 
