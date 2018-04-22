@@ -15,7 +15,11 @@ public class Intro : MonoBehaviour {
 	public Animator puzzleAnim;
 	public string sceneName;
 
+
+	private AudioSource source;
+
 	void Start(){
+		source = GetComponent<AudioSource>();
 		Cursor.visible = false;
 	}
 
@@ -25,7 +29,7 @@ public class Intro : MonoBehaviour {
 
 		if(waitTime <= 0){
 			if(Input.anyKeyDown && index < story.Length - 1){
-
+				source.Play();
 				storyAnim.SetTrigger("Change");
 				index++;
 			} else if(Input.anyKeyDown && index >= story.Length - 1){

@@ -15,7 +15,8 @@ public class Score : MonoBehaviour {
 
 	void Update(){
 		
-		scoreDisplay.text = "" + score.score;
+		scoreDisplay.text =score.score + "/100";
+	
 	}
 
 	public void Anim(){

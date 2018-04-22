@@ -11,7 +11,6 @@ public class Player : MonoBehaviour {
 	public bool isDown;
 	public bool isFlat;
 
-
 	void Update(){
 
 		if(Input.GetKey(KeyCode.LeftArrow)){

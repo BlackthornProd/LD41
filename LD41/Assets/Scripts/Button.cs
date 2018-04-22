@@ -10,14 +10,23 @@ public class Button : MonoBehaviour {
 	public GameObject bubble;
 	public Animator bubbleAnim;
 
+	private AudioSource source;
+	public AudioClip clip;
+
 	void Start(){
 		rend = GetComponent<SpriteRenderer>();
-
+		source = GetComponent<AudioSource>();
 	}
 
 	void OnMouseOver(){
+
 		bubble.SetActive(true);
 		rend.sprite = opened;
+	}
+
+	void OnMouseEnter(){
+		source.clip = clip;
+		source.Play();
 	}
 
 	void OnMouseExit(){

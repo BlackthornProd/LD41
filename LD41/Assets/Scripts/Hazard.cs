@@ -18,6 +18,7 @@ public class Hazard : MonoBehaviour {
 	public Color[] colors;
 	private ScoreKeeping scoreKeeping;
 
+
 	void Start(){
 		scoreKeeping = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreKeeping>();
 		gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
