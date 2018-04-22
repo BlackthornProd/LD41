@@ -29,7 +29,7 @@ public class Spawner : MonoBehaviour {
 			}
 
 			if(difficultyTimer <= 0){
-				if(startTimeBtwSpanws > 0.6f){
+				if(startTimeBtwSpanws > 0.5f){
 					startTimeBtwSpanws -= decrease;
 					difficultyTimer = startDifficultyTimer;
 				}

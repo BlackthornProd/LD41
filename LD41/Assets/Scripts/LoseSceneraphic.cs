@@ -10,7 +10,7 @@ public class LoseSceneraphic : MonoBehaviour {
 
 	void Start(){
 		rend = GetComponent<SpriteRenderer>();
-		int rand = Random.Range(0, loseScenes.Length +1);
+		int rand = Random.Range(0, loseScenes.Length);
 		rend.sprite = loseScenes[rand];
 	}
 }

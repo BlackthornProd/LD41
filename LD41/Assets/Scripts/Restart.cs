@@ -13,6 +13,9 @@ public class Restart : MonoBehaviour {
 	private ScoreKeeping score;
 
 	public GameObject scoreObject;
+	public Animator scoreAnim;
+	public Animator goldenFade;
+	public float goldenWaitTime;
 	float waitTimeTwo = 1f;
 	bool isActive;
 
@@ -32,19 +35,18 @@ public class Restart : MonoBehaviour {
 		} else {
 			waitTimeTwo -= Time.deltaTime;		
 		}
-		
 
-		if(Input.anyKey && waitTime <= 0){
-			StartCoroutine(RestartGame());
-		} else {
-			waitTime -= Time.deltaTime;
+
+		if(score.score >= 100){
+			scoreAnim.SetTrigger("Flashing");
+			goldenFade.SetTrigger("FadeIn");
+			if(goldenWaitTime <= 0){
+				SceneManager.LoadScene("Win");
+			} else {
+				goldenWaitTime -= Time.deltaTime;
+			}
 		}
+
 	}
 
-	IEnumerator RestartGame(){
-		scoreObject.SetActive(false);
-		puzzleTransition.SetTrigger("In");
-		yield return new WaitForSeconds(2f);
-		SceneManager.LoadScene("Game");
-	}
 }
